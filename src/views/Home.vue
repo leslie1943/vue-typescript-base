@@ -8,15 +8,18 @@
     <Clock />
     <el-divider>🍀</el-divider>
     <CountDown endDate="2021-04-28 23:59:22" />
+    <el-divider>🍀</el-divider>
+    <WatchDemo :name="watchName" :person="watchPerson" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
-import Clock from '@/components/Clock.vue' // @ is an alias to /src
-import Count from '@/components/Count.vue' // @ is an alias to /src
-import CountDown from '@/components/CountDown.vue' // @ is an alias to /src
+import HelloWorld from '@/components/HelloWorld.vue'
+import Clock from '@/components/Clock.vue'
+import Count from '@/components/Count.vue'
+import CountDown from '@/components/CountDown.vue'
+import WatchDemo from '@/components/WatchDemo.vue'
 
 import { Route, NavigationGuardNext } from 'vue-router'
 
@@ -25,7 +28,8 @@ import { Route, NavigationGuardNext } from 'vue-router'
     HelloWorld,
     Clock,
     Count,
-    CountDown
+    CountDown,
+    WatchDemo
   },
   beforeRouteEnter(to: Route, from: Route, next: NavigationGuardNext) {
     console.info('beforeRouteEnter to.path', to.path)
@@ -40,5 +44,23 @@ import { Route, NavigationGuardNext } from 'vue-router'
     next()
   }
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  watchName = 'suzhen for watching'
+  watchPerson = {
+    name: 'person name',
+    age: 22,
+    company: 'facebook'
+  }
+
+  mounted() {
+    setInterval(() => {
+      this.watchName = new Date().getTime() + '-' + 'suzhen watch name'
+      this.watchPerson = {
+        name: new Date().getTime() + '-' + 'watchPerson  name',
+        age: new Date().getTime(),
+        company: new Date().getTime() + '-' + 'watchPerson  company'
+      }
+    }, 2000)
+  }
+}
 </script>
