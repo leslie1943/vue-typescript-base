@@ -10,6 +10,8 @@
     <CountDown endDate="2021-04-28 23:59:22" />
     <el-divider>🍀</el-divider>
     <WatchDemo :name="watchName" :person="watchPerson" />
+    <el-divider>🍀</el-divider>
+    <VModelDemo :toggled="parentChecked" />
   </div>
 </template>
 
@@ -20,6 +22,7 @@ import Clock from '@/components/Clock.vue'
 import Count from '@/components/Count.vue'
 import CountDown from '@/components/CountDown.vue'
 import WatchDemo from '@/components/WatchDemo.vue'
+import VModelDemo from '@/components/VModel.vue'
 
 import { Route, NavigationGuardNext } from 'vue-router'
 
@@ -29,7 +32,8 @@ import { Route, NavigationGuardNext } from 'vue-router'
     Clock,
     Count,
     CountDown,
-    WatchDemo
+    WatchDemo,
+    VModelDemo
   },
   beforeRouteEnter(to: Route, from: Route, next: NavigationGuardNext) {
     console.info('beforeRouteEnter to.path', to.path)
@@ -45,6 +49,7 @@ import { Route, NavigationGuardNext } from 'vue-router'
   }
 })
 export default class Home extends Vue {
+  parentChecked = true
   watchName = 'suzhen for watching'
   watchPerson = {
     name: 'person name',
