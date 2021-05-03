@@ -12,6 +12,8 @@
     <WatchDemo :name="watchName" :person="watchPerson" />
     <el-divider>🍀</el-divider>
     <VModelDemo :toggled="parentChecked" />
+    <el-divider>🍀</el-divider>
+    <EmitParent />
   </div>
 </template>
 
@@ -23,6 +25,7 @@ import Count from '@/components/Count.vue'
 import CountDown from '@/components/CountDown.vue'
 import WatchDemo from '@/components/WatchDemo.vue'
 import VModelDemo from '@/components/VModel.vue'
+import EmitParent from '@/components/EmitParent.vue'
 
 import { Route, NavigationGuardNext } from 'vue-router'
 
@@ -33,7 +36,8 @@ import { Route, NavigationGuardNext } from 'vue-router'
     Count,
     CountDown,
     WatchDemo,
-    VModelDemo
+    VModelDemo,
+    EmitParent
   },
   beforeRouteEnter(to: Route, from: Route, next: NavigationGuardNext) {
     console.info('beforeRouteEnter to.path', to.path)
