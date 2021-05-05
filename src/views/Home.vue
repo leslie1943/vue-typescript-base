@@ -14,6 +14,8 @@
     <VModelDemo :toggled="parentChecked" />
     <el-divider>🍀</el-divider>
     <EmitParent />
+    <el-divider>🍀</el-divider>
+    <ProvideDemo />
   </div>
 </template>
 
@@ -26,6 +28,7 @@ import CountDown from '@/components/CountDown.vue'
 import WatchDemo from '@/components/WatchDemo.vue'
 import VModelDemo from '@/components/VModel.vue'
 import EmitParent from '@/components/EmitParent.vue'
+import ProvideDemo from '@/components/ProvideDemo.vue'
 
 import { Route, NavigationGuardNext } from 'vue-router'
 
@@ -37,7 +40,8 @@ import { Route, NavigationGuardNext } from 'vue-router'
     CountDown,
     WatchDemo,
     VModelDemo,
-    EmitParent
+    EmitParent,
+    ProvideDemo
   },
   beforeRouteEnter(to: Route, from: Route, next: NavigationGuardNext) {
     console.info('beforeRouteEnter to.path', to.path)
