@@ -16,6 +16,10 @@
     <EmitParent />
     <el-divider>🍀</el-divider>
     <ProvideDemo />
+    <el-divider>🍀</el-divider>
+    <RefDefaultDemo />
+    <el-divider>🍀</el-divider>
+    <RefNameDemo />
   </div>
 </template>
 
@@ -29,6 +33,8 @@ import WatchDemo from '@/components/WatchDemo.vue'
 import VModelDemo from '@/components/VModel.vue'
 import EmitParent from '@/components/EmitParent.vue'
 import ProvideDemo from '@/components/ProvideDemo.vue'
+import RefDefaultDemo from '@/components/RefDefaultDemo.vue'
+import RefNameDemo from '@/components/RefNameDemo.vue'
 
 import { Route, NavigationGuardNext } from 'vue-router'
 
@@ -41,7 +47,9 @@ import { Route, NavigationGuardNext } from 'vue-router'
     WatchDemo,
     VModelDemo,
     EmitParent,
-    ProvideDemo
+    ProvideDemo,
+    RefDefaultDemo,
+    RefNameDemo
   },
   beforeRouteEnter(to: Route, from: Route, next: NavigationGuardNext) {
     console.info('beforeRouteEnter to.path', to.path)
