@@ -2,6 +2,7 @@
   <div class="wrapper">
     <el-button @click="doSometh('button parameters')">doSometh</el-button>
     <el-button @click="resetCount(1943)">Reset</el-button>
+    <el-button @click="emitMock">Emit mock</el-button>
   </div>
 </template>
 
@@ -38,6 +39,11 @@ export default class EmitParent extends Vue {
   resetCount(num: number) {
     console.info('num in resetCount', num) // 🎃 num in resetCount 1943
     this.count = 0
+  }
+
+  emitMock() {
+    console.info('mock run in child')
+    this.$emit('mock', 'mmmmmmmmmoooooooccccckkk')
   }
 }
 </script>

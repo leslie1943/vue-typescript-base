@@ -7,13 +7,13 @@
     <el-divider>🍀</el-divider>
     <Clock />
     <el-divider>🍀</el-divider>
-    <CountDown endDate="2021-04-28 23:59:22" />
+    <CountDown endDate="2021-06-28 23:59:22" />
     <el-divider>🍀</el-divider>
     <WatchDemo :name="watchName" :person="watchPerson" />
     <el-divider>🍀</el-divider>
     <VModelDemo :toggled="parentChecked" />
     <el-divider>🍀</el-divider>
-    <EmitParent />
+    <EmitParent @mock="handleMock" />
     <el-divider>🍀</el-divider>
     <ProvideDemo />
     <el-divider>🍀</el-divider>
@@ -37,6 +37,8 @@ import RefDefaultDemo from '@/components/RefDefaultDemo.vue'
 import RefNameDemo from '@/components/RefNameDemo.vue'
 
 import { Route, NavigationGuardNext } from 'vue-router'
+
+import { PassengerStoreModule } from '@/store/modules/passenger'
 
 @Component({
   components: {
@@ -73,7 +75,15 @@ export default class Home extends Vue {
     company: 'facebook'
   }
 
+  // 父组件接收执行子组件的事件
+  handleMock(val: string) {
+    console.info('mock run in parent')
+    console.info('handleMock', val)
+  }
+
   mounted() {
+    console.info('this.$store', this.$store)
+    console.info('PassengerStoreModule', PassengerStoreModule)
     setInterval(() => {
       this.watchName = new Date().getTime() + '-' + 'suzhen watch name'
       this.watchPerson = {
