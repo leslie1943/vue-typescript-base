@@ -24,7 +24,7 @@ export default class PassengerStore extends VuexModule {
   // 💛 STATE: should be public for accessiable
   public loginInfo: PassengerUser[] = []
 
-  // for mutation-action
+  // 💛 mutation-action State
   public username = ''
   public password = ''
 
