@@ -1,4 +1,4 @@
-import { getUser } from '@/utils/call'
+import { getUser } from '@/utils/user'
 import {
   Module,
   VuexModule,
