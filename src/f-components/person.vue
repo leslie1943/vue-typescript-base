@@ -1,11 +1,11 @@
 <template>
   <div class="hello">
     <div>
-      <el-button :loading="pageDataLoading" @click="getMan">getMan</el-button>
+      <el-button :loading="pageDataLoading" @click="getMan">get man</el-button>
     </div>
     <div>pageDataLoading:{{ pageDataLoading }}</div>
     <div>pageDataMan:{{ pageDataMan }}</div>
-    <div>allState:{{ allState }}</div>
+    <div>errors:{{ errors }}</div>
   </div>
 </template>
 
@@ -13,9 +13,10 @@
 import { Component, Vue } from 'vue-property-decorator'
 import { Action, State } from 'vuex-class'
 import { AppState } from '@/store'
-import { personModuleName } from '@/store/modules/common/modulenames'
+import { MODULE_NAMES } from '@/store/modules/common/modulenames'
 import { Man } from '@/store/modules/person'
-const namespace = personModuleName
+
+const namespace = MODULE_NAMES.PERSON
 
 @Component
 export default class Person extends Vue {
@@ -30,7 +31,7 @@ export default class Person extends Vue {
     | undefined
 
   @State((state: AppState) => state.person.man) pageDataMan: Man | undefined
-  @State((state: AppState) => state) allState: any
+  @State((state: AppState) => state.errors) errors: any
 
   handleGetMan = async () => {
     await this.getMan()

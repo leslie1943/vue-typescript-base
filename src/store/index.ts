@@ -6,17 +6,20 @@ Vue.use(Vuex)
 
 export type AppState = {
   person: PersonModule
+  errors: string[]
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const createStore = (options: {
   isLogger?: boolean
   initialState?: Partial<AppState>
 }): Store<AppState> => {
+  console.info(options)
   const store = new Vuex.Store({
     modules: {
       person: PersonModule
     },
+    mutations: {},
+    actions: {},
     state: {
       errors: []
     }
