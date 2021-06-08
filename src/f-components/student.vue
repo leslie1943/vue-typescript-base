@@ -1,11 +1,6 @@
 <template>
   <div class="hello">
-    <h1>This is one of vuex usage: @Module({ namespaced: true })</h1>
-    <div>
-      <el-button :loading="pageDataLoading" @click="getMan">get man</el-button>
-    </div>
-    <div>pageDataLoading:{{ pageDataLoading }}</div>
-    <div>pageDataMan:{{ pageDataMan }}</div>
+    <h1>This is one of vuex usage: @Module</h1>
   </div>
 </template>
 

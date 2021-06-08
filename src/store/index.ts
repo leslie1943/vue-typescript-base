@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex, { Store } from 'vuex'
 
 import PersonModule from './modules/person'
+import Students from './modules/students'
 Vue.use(Vuex)
 
 export type AppState = {
@@ -16,7 +17,8 @@ export const createStore = (options: {
   console.info(options)
   const store = new Vuex.Store({
     modules: {
-      person: PersonModule
+      person: PersonModule,
+      student: Students
     },
     mutations: {},
     actions: {},
